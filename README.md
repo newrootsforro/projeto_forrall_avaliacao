@@ -17,13 +17,15 @@ Para ajudar é bem simples e temos várias e diversas necessidades. Desde docume
 ### Instalação
 Baixe o projeto e rode os comandos abaixo: 
 
-$ make config
-$ make setup
-$ make install
+    $ make setup
 
 Para verificar se tudo está funcionando: 
 
-$ make tests
+    $ make tests
 
 Todos os testes devem passar com sucesso. 
+
+Para rodar o projeto basta o comando abaixo
+
+    $ make run
 
