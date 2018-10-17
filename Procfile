@@ -1,1 +1,1 @@
-web: gunicorn projeto_forrall.wsgi --log-file -
+web: gunicorn pfa.wsgi --log-file -
