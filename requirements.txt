@@ -6,3 +6,4 @@ dj-static
 static
 whitenoise
 psycopg2
+django-jet
