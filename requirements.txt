@@ -1,5 +1,4 @@
 django
-django-suit
 gunicorn 
 dj-database-url
 dj-static
@@ -7,3 +6,4 @@ static
 whitenoise
 psycopg2
 django-jet
+ django-heroku
