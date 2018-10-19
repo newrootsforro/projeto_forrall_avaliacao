@@ -43,6 +43,7 @@ class Pagamentos(models.Model):
     )
 
     mes=models.CharField(choices=MESES, max_length=55)
+    valor = models.IntegerField(default=50)
     data_pagamento = models.DateTimeField(blank=True,null=True)
     data_modificacao = models.DateTimeField(auto_now=True)
     observacao = models.TextField()
