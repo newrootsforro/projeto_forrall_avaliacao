@@ -1,6 +1,13 @@
 .PHONY: setup
-setup:
+setup: install-deps
+	@python manage.py syncdb
+	@python manage.py migrate
+	@python manage.py createsuperuser
+
+install-deps:
 	@pip install -r requirements.txt
+
+migrate:
 	@python manage.py migrate
 
 create_admin:

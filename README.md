@@ -12,10 +12,15 @@ Para que uma pessoa passe de nível ela precisa fazer o curso, ter um minimo de 
 
 ## Como contribuir 
 
-Para ajudar é bem simples e temos várias e diversas necessidades. Desde documentação a codificação em si. 
+Para contribuir com o projeto basta que clone o projeto e submete um pull request para ele. Esse é o melhor fluxo para que possamos sempre manter a qualidade e um certo controle das releases. 
+
 
 ### Instalação
-Baixe o projeto e rode os comandos abaixo: 
+Consideramos que já seja familiarizado com o GIT. Caso não, recomendo que vejo como fazer antes pois é primordial. 
+Recomendamos muito sistemas operacionais como Linux ou Unix based (mac os). Eles são mais amigáveis para desenvolvedores e são bem mais simples de instalar as dependencias. 
+
+O primeiro passo consiste em baixar o projeto para seu computador, onde irá trabalhar.
+Depois de baixar o projeto, entre na pasta onde você o clonou e digite os comandos:
 
     $ make setup
 
