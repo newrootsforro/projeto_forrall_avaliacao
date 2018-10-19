@@ -12,9 +12,37 @@ ALUNOS_NIVEIS = (
     ('azul claro', 'Azul Claro'),
 )
 
+MESES = (
+    ('Jan', 'Janeiro'),
+    ('Fev', 'Fevereiro'),
+    ('Mar', 'Março'),
+    ('Abr', 'Abril'),
+    ('Maio', 'Maio'),
+    ('Jun', 'Junho'),
+    ('Jul', 'Julho'),
+    ('Ago', 'Agosto'),
+    ('Set', 'Setembro'),
+    ('Out', 'Outubro'),
+    ('Nov', 'Novembro'),
+    ('Dez', 'Dezembro'),
+)
+
 class Aluno(models.Model):
 
     nome = models.CharField(max_length=255)
     telefone = models.CharField(max_length=20)
     email=models.CharField(max_length=255,blank=True,null=True)
     nivel=models.CharField(choices=ALUNOS_NIVEIS, max_length=55)
+
+
+class Pagamentos(models.Model):
+
+    aluno = models.ForeignKey(
+        'Aluno',
+        on_delete=models.CASCADE,
+    )
+
+    mes=models.CharField(choices=MESES, max_length=55)
+    data_pagamento = models.DateTimeField(blank=True,null=True)
+    data_modificacao = models.DateTimeField(auto_now=True)
+    observacao = models.TextField()
