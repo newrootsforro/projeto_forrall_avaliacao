@@ -34,6 +34,12 @@ class Aluno(models.Model):
     email=models.CharField(max_length=255,blank=True,null=True)
     nivel=models.CharField(choices=ALUNOS_NIVEIS, max_length=55)
 
+    def __str__(self):
+        return self.nome
+
+    def __repr__(self):
+        return "Aluno[{}={}]".format(self.nome, self.nivel)
+
 
 class Pagamentos(models.Model):
 
@@ -47,3 +53,10 @@ class Pagamentos(models.Model):
     data_pagamento = models.DateField(blank=True,null=True)
     data_modificacao = models.DateTimeField(auto_now=True)
     observacao = models.TextField()
+
+
+    def __str__(self):
+        return '{} - {}'.format(
+            self.aluno.nome,
+            self.mes
+        )
