@@ -125,6 +125,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-import pdb; pdb.set_trace()
 if 'test' not in sys.argv:
     django_heroku.settings(locals())
