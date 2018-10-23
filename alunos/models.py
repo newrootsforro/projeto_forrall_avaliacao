@@ -40,6 +40,11 @@ class Aluno(models.Model):
     def __repr__(self):
         return "Aluno[{}={}]".format(self.nome, self.nivel)
 
+class Nivel(models.Model):
+
+    nome = models.CharField(max_length=55)
+    pontuacao_minima = models.IntegerField()
+
 
 class Pagamentos(models.Model):
 
