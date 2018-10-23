@@ -1,5 +1,5 @@
 from django.db import models
-from django.auth.models import User
+from django.contrib.auth.models import User
 
 from alunos.models import Nivel, Aluno
 
@@ -23,16 +23,16 @@ class Criterio(models.Model):
 
 class Prova(models.Model):
     titulo  = models.CharField(max_length=55)
-    nivel = models.ForeignKey(Nivel)
-    processo = models.Foreign(Processo)
+    nivel = models.ForeignKey(Nivel, on_delete=models.CASCADE)
+    processo = models.ForeignKey(Processo, on_delete=models.CASCADE)
     criterios = models.ManyToManyField(Criterio)
 
 
 class Avaliacao(models.Model):
-    prova = models.ForeignKey(Prova)
-    criterio = models.ForeignKey(Criterio)
-    avaliado = models.Foreignkey(Aluno)
-    avaliador = models.ForeignKey(User)
+    prova = models.ForeignKey(Prova, on_delete=models.CASCADE)
+    criterio = models.ForeignKey(Criterio, on_delete=models.CASCADE)
+    avaliado = models.ForeignKey(Aluno, on_delete=models.CASCADE)
+    avaliador = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.CharField(
         max_length=55,
         choices= (
@@ -43,4 +43,4 @@ class Avaliacao(models.Model):
 
     class Meta:
         verbose_name = 'Avaliacao'
-        verbose_name_plural = 'Avaliações
+        verbose_name_plural = 'Avaliações'
