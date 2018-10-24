@@ -4,14 +4,6 @@ from __future__ import unicode_literals
 from django.db import models
 
 
-ALUNOS_NIVEIS = (
-    ('branco', 'Branco'),
-    ('amarelo', 'Amarelo'),
-    ('laranja', 'Laranja'),
-    ('verde', 'Verde'),
-    ('azul claro', 'Azul Claro'),
-)
-
 MESES = (
     ('Jan', 'Janeiro'),
     ('Fev', 'Fevereiro'),
@@ -27,23 +19,31 @@ MESES = (
     ('Dez', 'Dezembro'),
 )
 
+
+class Nivel(models.Model):
+
+    nome = models.CharField(max_length=55)
+    pontuacao_minima = models.IntegerField(blank=True,null=True)
+
+    def __str__(self):
+        return self.nome
+
+    def __repr__(self):
+        return "Nivel[{}={}]".format(self.nome, self.pontuacao_minima)
+
+
 class Aluno(models.Model):
 
     nome = models.CharField(max_length=255)
     telefone = models.CharField(max_length=20)
     email=models.CharField(max_length=255,blank=True,null=True)
-    nivel=models.CharField(choices=ALUNOS_NIVEIS, max_length=55)
+    nivel=models.ForeignKey(Nivel, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nome
 
     def __repr__(self):
         return "Aluno[{}={}]".format(self.nome, self.nivel)
-
-class Nivel(models.Model):
-
-    nome = models.CharField(max_length=55)
-    pontuacao_minima = models.IntegerField()
 
 
 class Pagamentos(models.Model):

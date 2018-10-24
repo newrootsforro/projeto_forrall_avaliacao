@@ -13,6 +13,12 @@ class Processo(models.Model):
     nome = models.CharField(max_length=55)
     data_realizacao = models.DateField(blank=True, null=True)
 
+    def __str__(self):
+        return self.nome
+
+    def __repr__(self):
+        return "Processo[{}={}]".format(self.nome, self.data_realizacao)
+
 
 class Criterio(models.Model):
     nome = models.CharField(max_length=55)
