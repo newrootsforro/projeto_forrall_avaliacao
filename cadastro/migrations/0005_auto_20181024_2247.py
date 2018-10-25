@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('alunos', '0004_auto_20181023_1553'),
+        ('cadastro', '0004_auto_20181023_1553'),
     ]
 
     operations = [

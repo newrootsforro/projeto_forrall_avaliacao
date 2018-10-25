@@ -8,7 +8,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('alunos', '0004_auto_20181023_1553'),
+        ('cadastro', '0004_auto_20181023_1553'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ('avaliacao', '0001_initial'),
     ]

@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from cadastro.models import Nivel, Aluno
+from cadastro.models import Nivel, Aluno, Processo
 
 
 class Movimento(models.Model):
