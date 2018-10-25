@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth import User
 
 
 MESES = (
@@ -20,16 +21,28 @@ MESES = (
 )
 
 
-class Nivel(models.Model):
-
+class Processo(models.Model):
     nome = models.CharField(max_length=55)
-    pontuacao_minima = models.IntegerField(blank=True,null=True)
+    data_realizacao = models.DateField(blank=True, null=True)
 
     def __str__(self):
         return self.nome
 
     def __repr__(self):
-        return "Nivel[{}={}]".format(self.nome, self.pontuacao_minima)
+        return "Processo[{}={}]".format(self.nome, self.data_realizacao)
+
+
+class Nivel(models.Model):
+
+    nome = models.CharField(max_length=55)
+    pontuacao_minima = models.IntegerField(blank=True,null=True)
+    ordem = models.IntegerField(default=1)
+
+    def __str__(self):
+        return self.nome
+
+    def __repr__(self):
+        return "Nivel[{}={}]".format(self.nome, self.ordem)
 
 
 class Aluno(models.Model):
@@ -44,6 +57,15 @@ class Aluno(models.Model):
 
     def __repr__(self):
         return "Aluno[{}={}]".format(self.nome, self.nivel)
+
+
+class Avaliador(models.Model):
+    nome = models.CharField(max_length=255)
+    nivel = models.ForeignKey(Nivel, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nome
 
 
 class Pagamentos(models.Model):
