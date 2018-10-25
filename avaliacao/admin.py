@@ -2,10 +2,6 @@ from django.contrib import admin
 
 from avaliacao import models
 
-@admin.register(models.Processo)
-class ProcessoAdmin(admin.ModelAdmin):
-    pass
-
 
 @admin.register(models.Prova)
 class ProvaAdmin(admin.ModelAdmin):

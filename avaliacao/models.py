@@ -1,13 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from alunos.models import Nivel, Aluno
+from cadastro.models import Nivel, Aluno
 
 
 class Movimento(models.Model):
     nome = models.CharField(max_length=55)
     descricao = models.TextField()
 
+    def __str__(self):
+        return self.nome
 
 
 class Criterio(models.Model):
@@ -16,12 +18,18 @@ class Criterio(models.Model):
     pontuacao_reprovacao = models.IntegerField()
     pontuacao_aprovacao = models.IntegerField()
 
+    def __str__(self):
+        return self.nome
+
 
 class Prova(models.Model):
     titulo  = models.CharField(max_length=55)
     nivel = models.ForeignKey(Nivel, on_delete=models.CASCADE)
     processo = models.ForeignKey(Processo, on_delete=models.CASCADE)
     criterios = models.ManyToManyField(Criterio)
+
+    def __str__(self):
+        return self.titulo
 
 
 class Avaliacao(models.Model):
@@ -40,3 +48,6 @@ class Avaliacao(models.Model):
     class Meta:
         verbose_name = 'Avaliacao'
         verbose_name_plural = 'Avaliações'
+
+    def __str__(self):
+        return f'{self.criterio.nome} - {self.prova.titulo} - {self.avaliado.nome}'

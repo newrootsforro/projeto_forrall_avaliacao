@@ -3,7 +3,16 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 
-from .models import Aluno, Pagamentos, Nivel
+from .models import (
+    Aluno,
+    Pagamentos,
+    Nivel,
+    Processo
+)
+
+@admin.register(Processo)
+class ProcessoAdmin(admin.ModelAdmin):
+    pass
 
 class PagamentosInline(admin.StackedInline):
     model = Pagamentos
